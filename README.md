@@ -13,10 +13,7 @@ Fireplace monitoring app using the ESP8266 Wemos D2 R1 Mini + DS18B20 temp senso
  - Setting up a text to speech engine to speak urgent "actions" based on the fuzzy rule set
  - Creation of a dashboard on the Node.js server
  - Creation of a webpage with fields and buttons. the fields are spoken by the TTs engine and the button toggles the Wemos LED
- 
-
-
-		![enter image description here](https://github.com/thebacons/FirePlaceMonitor/blob/main/Slide2.JPG)
+ ![FirePlaceMonitor Model ](https://github.com/thebacons/FirePlaceMonitor/blob/main/Slide2.JPG)
 
 
 
