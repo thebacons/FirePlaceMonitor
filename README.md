@@ -8,6 +8,17 @@ These recurring issues led me to seek a solution that would allow me to monitor 
 
 Thus, the idea for this fireplace temperature monitoring system was born. The system combines hardware and software to monitor the temperature of the fireplace in real-time, alert me when the temperature reaches certain thresholds, and allow me to control the fireplace remotely. This project has not only provided a practical solution to my problem but also served as a fascinating exploration of the intersection of software development, hardware, and everyday life.
 
+# FirePlaceMonitor App Overview
+The fireplace management App, is therefore a project of my passion for blending technology with everyday comfort. I've designed this application using the powerful ESP8266 Wemos D2 R1 Mini and the DS18B20 temperature sensor shield, creating a seamless blend of hardware and software that offers an intuitive user experience.
+
+With the FirePlaceMonitor App, I've made it possible for you to monitor your fireplace's temperature in real-time. The dynamic web dashboard, a feature I'm particularly proud of, updates instantly with every new temperature value received from the server, ensuring you always have the most accurate data at your disposal.
+
+But I didn't stop there! I've integrated Fuzzy Logic into the app, an advanced algorithm that analyzes the temperature data and determines the state of your fireplace. It alerts you when the temperature is too hot, too cold, or changing, taking the guesswork out of maintaining the perfect fire.
+
+And for the finishing touch? I've incorporated Text-to-Speech (TTS) alerts into the app, providing audible notifications based on the fireplace's temperature conditions. You can even customize the TTS messages and temperature thresholds to suit your preferences.
+
+In essence, the FirePlaceMonitor App is more than just a temperature monitoring tool, making it possible to manage your fireplace efficiently and effectively. 
+
 # Functional Specification Document
 
 **Project Overview**
@@ -90,43 +101,22 @@ The user interacts with the system through the web dashboard. They can view the 
 
 When the temperature reaches certain thresholds, the server triggers TTS messages to alert the user. This allows the user to take appropriate action, such as adding more wood to the fire or closing the vent, to maintain the desired temperature.
 
-## **Conclusion**
+## EdgeTTS Configuration
+The TTS functionality provides audible alerts based on the temperature conditions of the fireplace, enhancing the user experience and usability of the system. The use of the EdgeTTS library and the Microsoft Edge Text-to-Speech API provides high-quality TTS with a variety of voices and languages, and the ability to customize the TTS to suit the user's preferences.
+
+The EdgeTTS instance is configured with various options that control the voice, language, output format, and other aspects of the TTS functionality:
+
+``const  tts  =  new  EdgeTTS({voice:  'en-GB-RyanNeural', lang:  'en-GB', outputFormat:  'audio-24khz-96kbitrate-mono-mp3', saveSubtitles:  true,});``
+
+-   `voice`: This option specifies the voice to be used for the TTS. In this case, 'en-GB-RyanNeural' is used, which is a British English voice provided by Microsoft.
+-   `lang`: This option specifies the language to be used for the TTS. In this case, 'en-GB' is used, which stands for British English.
+-   `outputFormat`: This option specifies the format of the audio output. In this case, 'audio-24khz-96kbitrate-mono-mp3' is used, which is a high-quality mono MP3 format.
+-   `saveSubtitles`: This option, when set to true, enables the saving of subtitles for the spoken text.
+
+These options can be changed to configure the TTS to use different voices, languages, and output formats, providing flexibility and customization for the TTS functionality.
+
+## Conclusion
 
 This system provides a comprehensive solution for monitoring and controlling the temperature of a wood-burning fireplace. It combines hardware, software, and web technologies to provide real-time temperature monitoring, alerts, and control capabilities.
 
-# FirePlaceMonitor
-Fireplace monitoring app using the ESP8266 Wemos D2 R1 Mini + DS18B20 temp sensor shield - Node.js - Fuzzy Logic - TTS - Web Dashboards. The webpage dashboard creates a real-time temperature chart that updates whenever it receives a new temperature value from the server.
 
-## This project covers the following concepts
-
-- Wemos D1 R2 Mini connection to DS18B20 heat sensor shield
- - Creation of a Node.js server 
- - Connection for Wemos to the Node.js server via WebSocket which is transmitting:
-	- ttsMessage 
-     	- Message 
-      	- Temperature
- - Defining and setting up Fuzzy Logic rule sets
- - Setting up a text-to-speech engine to speak urgent "actions" based on the fuzzy rule set
- - Creation of a dashboard on the Node.js server
- - Creation of a webpage with fields and buttons. the fields are spoken by the TTs engine and the button toggles the Wemos LED
-
-
-
-
-
-
-
-
-
-
-
-
-**WebSocket Connection:** var socket = new WebSocket('ws://192.168.188.142:8081/client'); creates a new WebSocket connection to the server at the specified URL. WebSockets provide real-time, two-way communication between the server and the client.
-
-**Chart Initialization:** The new Chart() constructor is used to create a new chart. It takes two arguments: a context (in this case, the canvas element with the id temperatureChart), and an object that specifies the configuration of the chart. The configuration object includes the type of chart ('line'), the data for the chart (initially an empty array), and options for the chart (such as the scales for the x and y axes).
-
-**WebSocket Message Event:** The socket.onmessage function is an event handler that's called whenever the client receives a message from the server over the WebSocket connection. The message is expected to be a JSON string that contains a 'temperature' property.
-
-**Updating the Chart:** When a message is received from the server, the temperature value is pushed into the temperatureData array, a new label is added to the chart, and the chart is updated with temperatureChart.update(). This causes the new temperature value to be displayed on the chart.
-
-In summary, this webpage creates a real-time temperature chart that updates whenever it receives a new temperature value from the server. The Chart.js library is used to create and update the chart, and the WebSocket API is used to receive the temperature values from the server.
