@@ -5,12 +5,12 @@ Fireplace monitoring app using the ESP8266 Wemos D2 R1 Mini + DS18B20 temp senso
 
 - Wemos D1 R2 Mini connection to DS18B20 heat sensor shield
  - Creation of a Node.js server 
- - Connection for Wemos to the Node.js server via websocket which is tranmissing the
-	 - ttsMessage 
-     - Message 
-      - Temperature
- - Fuzzy Logic rule sets
- - Setting up a text to speech engine to speak urgent "actions" based on the fuzzy rule set
+ - Connection for Wemos to the Node.js server via WebSocket which is transmitting:
+	- ttsMessage 
+     	- Message 
+      	- Temperature
+ - Defining and setting up Fuzzy Logic rule sets
+ - Setting up a text-to-speech engine to speak urgent "actions" based on the fuzzy rule set
  - Creation of a dashboard on the Node.js server
  - Creation of a webpage with fields and buttons. the fields are spoken by the TTs engine and the button toggles the Wemos LED
  ![FirePlaceMonitor Model ](https://github.com/thebacons/FirePlaceMonitor/blob/main/Slide2.JPG)
